@@ -73,8 +73,8 @@ public class ICloudManager: NSObject {
                 }
             }
             if let data = obj {
-                let writeUrl = URL.init(fileURLWithPath: ICloudManager.iCloudBoxPath + forderName + documentURL.lastPathComponent)
-                ICloudFileHelper.createDirectory(atPath: ICloudManager.iCloudBoxPath + forderName)
+                let writeUrl = URL.init(fileURLWithPath: ICloudManager.iCloudBoxPath + documentURL.lastPathComponent)
+                ICloudFileHelper.createDirectory(atPath: ICloudManager.iCloudBoxPath)
                 do {
                     try data.write(to: writeUrl, options: .atomic)
                     callBack(ICloudDocumentModel.model(path: writeUrl.path), true, "文件写入成功")
